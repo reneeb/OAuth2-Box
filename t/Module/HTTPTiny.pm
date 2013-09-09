@@ -2,8 +2,6 @@ package t::Module::HTTPTiny;
 
 no warnings 'redefine';
 
-sub HTTP::Tiny::new { bless {}, shift };
-
 sub HTTP::Tiny::test { "test" };
 
 sub HTTP::Tiny::last_request {
@@ -11,7 +9,7 @@ sub HTTP::Tiny::last_request {
 
     $self->{last_request} = $data if @_ == 2;
     return $self->{last_request};
-}
+};
 
 sub HTTP::Tiny::post_form {
     my ($self, $url, $data) = @_;
@@ -29,6 +27,6 @@ sub HTTP::Tiny::post_form {
         refresh_token => 123,
         expires       => 1352,
     };
-}
+};
 
 1;
