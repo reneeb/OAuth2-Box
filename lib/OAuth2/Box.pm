@@ -22,10 +22,9 @@ has client_id     => ( is => 'ro', isa => Str, required => 1 );
 has client_secret => ( is => 'ro', isa => Str, required => 1 );
 has redirect_uri  => ( is => 'ro', isa => Str, required => 1 );
 
-has agent => ( is => 'lazy', isa => InstanceOf["HTTP::Tiny"] );
+has agent => ( is => 'ro', isa => InstanceOf["HTTP::Tiny"], lazy => 1, default => sub { HTTP::Tiny->new } );
 has jsonp => ( is => 'lazy', isa => InstanceOf["JSON"] );
 
-sub _build_agent { print STDERR "asdfsdf\n\n"; HTTP::Tiny->new }
 sub _build_jsonp { JSON->new->allow_nonref }
 
 sub authorization_uri {
