@@ -12,7 +12,7 @@ use Moo;
 use Types::Standard qw(Str InstanceOf);
 use URI;
 
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 use constant BOX_URL => 'https://www.box.com/api/oauth2/';
 
